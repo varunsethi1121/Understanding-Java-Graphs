@@ -1,7 +1,7 @@
 package GRAPHS;
 import java.util.*;
 
-public class graphBFSAlgorithm {
+public class graphHasPath {
     static class Edge {
         int source;
         int destination;
@@ -13,28 +13,7 @@ public class graphBFSAlgorithm {
             this.edgeWeight = w;
         }
     }
-
-    public static void bfs(ArrayList<Edge>[] graph, int startVertex) {
-        Queue<Integer> q = new LinkedList<>();
-        boolean[] tempArray = new boolean[graph.length];
-        
-        q.add(startVertex);
-         
-        while (!q.isEmpty()) {
-            int currentNode = q.remove();
-            
-            if (!tempArray[currentNode]) {
-                System.out.print(currentNode + " ");
-                tempArray[currentNode] = true;
-                
-                for (Edge e : graph[currentNode]) {
-                    q.add(e.destination);
-                }
-            }
-        }
-    }
     
-
     public static void main(String args[]) {
         int vertices = 7;
         @SuppressWarnings("unchecked")
@@ -67,7 +46,6 @@ public class graphBFSAlgorithm {
 
         sampleGraph[6].add(new Edge(6, 5, 1));
 
-        System.out.print("BFS Traversal starting from node 0: ");
-        bfs(sampleGraph, 0);
     }
 }
+

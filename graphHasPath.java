@@ -1,7 +1,7 @@
 package GRAPHS;
 import java.util.*;
 
-public class graphBFSAlgorithm {
+public class graphHasPath {
     static class Edge {
         int source;
         int destination;
@@ -13,28 +13,19 @@ public class graphBFSAlgorithm {
             this.edgeWeight = w;
         }
     }
-
-    public static void bfs(ArrayList<Edge>[] graph, int startVertex) {
-        Queue<Integer> q = new LinkedList<>();
-        boolean[] tempArray = new boolean[graph.length];
-        
-        q.add(startVertex);
-         
-        while (!q.isEmpty()) {
-            int currentNode = q.remove();
-            
-            if (!tempArray[currentNode]) {
-                System.out.print(currentNode + " ");
-                tempArray[currentNode] = true;
-                
-                for (Edge e : graph[currentNode]) {
-                    q.add(e.destination);
-                }
+    public static boolean hasPath(ArrayList<Edge>[] g, int s, int d, boolean[] visited){
+        if(s == d){
+            return true;
+        }
+        visited[s] = true;
+        for(int i=0;i<g[s].size();i++){
+            Edge e = g[s].get(i);
+            if(!visited[e.destination] && hasPath(g, e.destination, d, visited)){
+                return true;
             }
         }
+        return false;
     }
-    
-
     public static void main(String args[]) {
         int vertices = 7;
         @SuppressWarnings("unchecked")
@@ -63,11 +54,11 @@ public class graphBFSAlgorithm {
 
         sampleGraph[5].add(new Edge(5, 3, 1));
         sampleGraph[5].add(new Edge(5, 4, 1));
-        sampleGraph[5].add(new Edge(5, 6, 1));
+        // sampleGraph[5].add(new Edge(5, 6, 1));
 
-        sampleGraph[6].add(new Edge(6, 5, 1));
+        // sampleGraph[6].add(new Edge(6, 5, 1));
 
-        System.out.print("BFS Traversal starting from node 0: ");
-        bfs(sampleGraph, 0);
+        System.out.print("Path that you are looking for is present in the entered graph: " + hasPath(sampleGraph, 0, 6, new boolean[vertices]));
     }
 }
+
