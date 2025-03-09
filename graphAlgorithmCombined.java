@@ -2,7 +2,7 @@ package GRAPHS;
 
 import java.util.*;
 
-public class GraphAlgorithmCombined {
+public class graphAlgorithmCombined {
     static class Edge {
         int source;
         int destination;

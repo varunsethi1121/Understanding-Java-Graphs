@@ -33,14 +33,14 @@ public class graphDFSAlgorithm {
             sampleGraph[i] = new ArrayList<>();
         }
 
-        sampleGraph[0].add(new Edge(0, 1, 1));
-        sampleGraph[0].add(new Edge(0, 2, 1));
-
-        sampleGraph[1].add(new Edge(1, 0, 1));
+        sampleGraph[1].add(new Edge(1, 2, 1));
         sampleGraph[1].add(new Edge(1, 3, 1));
+        sampleGraph[1].add(new Edge(1, 5, 1));
+        sampleGraph[1].add(new Edge(1, 6, 1));
 
-        sampleGraph[2].add(new Edge(2, 0, 1));
+        sampleGraph[2].add(new Edge(2, 1, 1));
         sampleGraph[2].add(new Edge(2, 4, 1));
+        sampleGraph[2].add(new Edge(2, 6, 1));
 
         sampleGraph[3].add(new Edge(3, 1, 1));
         sampleGraph[3].add(new Edge(3, 4, 1));
@@ -49,14 +49,27 @@ public class graphDFSAlgorithm {
         sampleGraph[4].add(new Edge(4, 2, 1));
         sampleGraph[4].add(new Edge(4, 3, 1));
         sampleGraph[4].add(new Edge(4, 5, 1));
+        sampleGraph[4].add(new Edge(4, 6, 1));
 
         sampleGraph[5].add(new Edge(5, 3, 1));
         sampleGraph[5].add(new Edge(5, 4, 1));
-        sampleGraph[5].add(new Edge(5, 6, 1));
+        sampleGraph[5].add(new Edge(5, 1, 1));
 
-        sampleGraph[6].add(new Edge(6, 5, 1));
+        sampleGraph[6].add(new Edge(6, 1, 1));
+        sampleGraph[6].add(new Edge(6, 4, 1));
+        sampleGraph[6].add(new Edge(6, 2, 1));
 
-        System.out.print("BFS Traversal starting from node 0: ");
-        dfs(sampleGraph, 0, new boolean[vertices]);
+        System.out.print("DFS Traversal starting from node 0: ");
+        dfs(sampleGraph, 1, new boolean[vertices]);
+        System.out.println();
+        dfs(sampleGraph, 2, new boolean[vertices]);
+        System.out.println();
+        dfs(sampleGraph, 3, new boolean[vertices]);
+        System.out.println();
+        dfs(sampleGraph, 4, new boolean[vertices]);
+        System.out.println();
+        dfs(sampleGraph, 5, new boolean[vertices]);
+        System.out.println();
+        dfs(sampleGraph, 6, new boolean[vertices]);
     }
 }
