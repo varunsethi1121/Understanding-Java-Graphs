@@ -20,6 +20,7 @@ public class graphHasPath {
         visited[s] = true;
         for(int i=0;i<g[s].size();i++){
             Edge e = g[s].get(i);
+            //E.DESTINATION => NEIGHBOUR VERTEX
             if(!visited[e.destination] && hasPath(g, e.destination, d, visited)){
                 return true;
             }
